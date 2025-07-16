@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>E-Cart ChatBot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🛒 E-Cart Chat </h1>
+
+  <div id="chat"></div>
+
+  <div class="input-container">
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+  
+    <script>
+      const chatBox = document.getElementById("chat");
+    
+      function appendMessage(sender, text) {
+        const msg = document.createElement("div");
+        msg.className = `bubble ${sender}`;
+        msg.innerText = (sender === "user" ? "You: " : "E-Cart: ") + text;
+        chatBox.appendChild(msg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    
+      function sendMessage() {
+        const input = document.getElementById("userInput");
+        const message = input.value.trim();
+        if (!message) return;
+    
+        appendMessage("user", message);
+        input.value = "";
+    
+        fetch("http://127.0.0.1:8000/chat", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+          appendMessage("E-Cart", data.reply);
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          appendMessage("E-Cart", "E-Cart: Sorry, something went wrong.");
+        });
+      }
+    </script>
+    
+</body>
+</html>

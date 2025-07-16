@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fc466b, #3f5efb);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+h1 {
+  color: #fff;
+  text-shadow: 0 0 10px #00f2ff, 0 0 20px #0099ff;
+  margin-bottom: 20px;
+}
+
+#chat {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff20;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  min-height: 300px;
+  overflow-y: auto;
+  backdrop-filter: blur(8px);
+}
+
+.bubble {
+  margin: 10px 0;
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+.user {
+  background: #00bcd4;
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.E-Cart {
+  background: #f1f1f1;
+  color: #222;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.input-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+button {
+  padding: 12px 18px;
+  background: #00e676;
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #00c853;
+}
